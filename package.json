@@ -5,13 +5,22 @@
   "main": "index.js",
   "scripts": {
     "dev": "turbo start",
-    "build": "turbo build"
+    "build": "turbo build",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.26.0",
   "devDependencies": {
+    "@niu/eslint-config": "workspace:*",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "turbo": "^2.7.2"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
