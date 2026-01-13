@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "turbo start",
+    "dev": "turbo dev",
+    "dev:vite": "turbo dev --filter=vite-app",
+    "dev:webpack": "turbo dev --filter=webpack-app",
     "build": "turbo build",
     "prepare": "husky"
   },
