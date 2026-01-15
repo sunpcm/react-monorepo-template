@@ -8,6 +8,7 @@
     "dev:vite": "turbo dev --filter=vite-app",
     "dev:webpack": "turbo dev --filter=webpack-app",
     "build": "turbo build",
+    "build:analyze": "turbo build --filter=webpack-app -- --env ANALYZE=true",
     "prepare": "husky"
   },
   "keywords": [],

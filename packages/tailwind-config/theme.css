@@ -1,0 +1,22 @@
+/**
+ * Tailwind v4 共享主题配置
+ * 在各应用的 CSS 中 @import 使用
+ */
+
+@theme {
+  /* 自定义颜色 */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+
+  /* 自定义间距 */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+}

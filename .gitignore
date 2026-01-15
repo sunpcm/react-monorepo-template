@@ -1,22 +1,51 @@
-node_modules
-dist
-.DS_Store
+############################
+# Dependencies
+############################
+node_modules/
+
+############################
+# Build outputs
+############################
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+############################
+# Caches (monorepo/tools)
+############################
+.turbo/
+.webpack_cache/
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Vite cache (some setups write here)
+**/.vite/
+
+############################
+# Logs
+############################
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Turbo
-.turbo
+############################
+# OS / Editor
+############################
+.DS_Store
+.idea/
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Editor
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
-.idea
 
-# Build outputs
-*.tsbuildinfo
-coverage
+############################
+# Environment files
+############################
+# In this repo, apps contain checked-in example envs like .env.development/.env.production.
+# So we only ignore local override variants.
+.env.local
+.env.*.local

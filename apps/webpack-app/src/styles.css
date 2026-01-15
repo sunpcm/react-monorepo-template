@@ -1,0 +1,18 @@
+/* 引入 Tailwind v4 */
+@import "tailwindcss";
+
+/* 引入共享主题 */
+@import "@niu/tailwind-config";
+
+/* 自定义样式 */
+@layer base {
+  body {
+    @apply text-gray-900 bg-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 transition-colors;
+  }
+}

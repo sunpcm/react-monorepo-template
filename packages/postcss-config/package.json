@@ -1,0 +1,15 @@
+{
+  "name": "@niu/postcss-config",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "peerDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
