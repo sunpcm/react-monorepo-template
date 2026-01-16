@@ -29,7 +29,7 @@
             "inputs": [
                 "src/**",
                 "package.json",
-                ".eslintrc.*",
+                "eslint.config.*",
                 ".eslintignore",
                 "tsconfig*.json"
             ],
