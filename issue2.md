@@ -81,6 +81,12 @@
     - chunk 命名可读
     - vendor 拆分合理，首次加载与缓存友好
 
+> ✅ 已完成（2026-01-16）
+>
+> - Webpack prod 已启用 CSS 压缩（构建产物 CSS 显示 `[minimized]`）
+> - Webpack prod 已优化 chunk 命名，输出 `framework.*.js` 等可读 chunk
+> - 验收：`pnpm -C apps/webpack-app build`（构建成功）
+
 ### 7) 构建速度：webpack filesystem cache / SWC
 
 - [ ] 开启 Webpack filesystem cache（cache: { type: 'filesystem' }）
@@ -92,10 +98,15 @@
 
 ### 8) optimizeDeps/warmup 可选优化
 
-- [ ] 视情况添加 `optimizeDeps.include`（如：`react`、`react-dom`、`@niu/ui-lib`）
+- [x] 视情况添加 `optimizeDeps.include`（如：`react`、`react-dom`、`@niu/ui-lib`）
 - [ ] 视情况添加 `server.warmup`（提升首次打开/切页速度）
   - 验收标准：
     - dev 首次启动/首屏时间改善（以你本机体验为准）
+
+> ✅ 已完成（2026-01-16）
+>
+> - `apps/vite-app/vite.config.ts` 已将 `@niu/ui-lib` 加入 `optimizeDeps.include`
+> - 验收：`pnpm -C apps/vite-app build`（构建成功）
 
 ## P4：Packages（共享包）工程化完善
 
@@ -109,13 +120,18 @@
 
 ### 10) tailwind-config：JS preset 与 CSS theme 的导入语义清晰化
 
-- [ ] 确认 apps 里 `@import "@niu/tailwind-config";` 实际导入的是 CSS（或通过 exports 显式指向 `theme.css`）
+- [x] 确认 apps 里 `@import "@niu/tailwind-config";` 实际导入的是 CSS（或通过 exports 显式指向 `theme.css`）
   - 现状参考：
     - `packages/tailwind-config/theme.css`
     - `apps/vite-app/src/styles.css`
     - `apps/webpack-app/src/styles.css`
   - 验收标准：
     - 两个 app 均能正常加载该主题（dev/prod 都一致）
+
+> ✅ 已完成（2026-01-16）
+>
+> - `packages/configs/tailwind-config/package.json` 已通过 `exports` 明确导出 `./theme.css`
+> - 两个 app 的 `src/styles.css` 均使用 `@import "@niu/tailwind-config";`
 
 ## P5：工程一致性与后续增强（可排期）
 
@@ -126,12 +142,31 @@
     - Node 运行配置文件无兼容问题
     - 减少 `export default` 与 `module.exports` 混用导致的边界坑
 
+> ✅ 已完成一部分（2026-01-16）
+>
+> - 为消除 Vite build 的 Node 模块提示，`apps/vite-app/postcss.config.js` 已改为 CJS（`module.exports`）
+> - 验收：`pnpm -C apps/vite-app build`（无 `MODULE_TYPELESS_PACKAGE_JSON` warning）
+
 ### 12) 体积预算与可视化
 
 - [ ] 引入 `size-limit`（或类似方案）并写入 CI
 - [ ] 保留/完善 bundle analyzer（你 repo 里已有相关 TODO）
   - 验收标准：
     - PR 能看到体积变化（或至少超阈值会失败）
+
+### 13) 消除 typescript-eslint 与 TS 版本告警（可选）
+
+- [x] 升级 `@typescript-eslint/parser` / `@typescript-eslint/eslint-plugin` 以匹配当前 TypeScript 版本
+  - 背景：此前 lint 输出提示当前 TypeScript 版本超出 typescript-eslint 官方支持范围，虽然不阻塞，但会干扰排障。
+  - 现状参考：
+    - `packages/configs/eslint-config/package.json`
+  - 验收标准：
+    - `pnpm -w lint` 不再出现 typescript-eslint 的 TS 版本支持范围警告，且 lint 仍通过
+
+> ✅ 已完成（2026-01-16）
+>
+> - `packages/configs/eslint-config/package.json` 已将 `@typescript-eslint/*` 升级到 v8
+> - 验收：`pnpm -w lint`（通过且无相关 warning）
 
 ## 建议修改顺序（推荐）
 

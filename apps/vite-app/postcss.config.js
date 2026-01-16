@@ -1,3 +1,3 @@
-import config from "@niu/postcss-config";
+const config = require("@niu/postcss-config");
 
-export default config;
+module.exports = config;

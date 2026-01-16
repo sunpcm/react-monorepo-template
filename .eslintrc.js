@@ -20,7 +20,8 @@ module.exports = {
         node: true, // 关键：开启 Node 全局变量支持 (识别 module, require, __dirname)
       },
       rules: {
-        // 允许使用 require
+        // 允许使用 require（配置文件中很常见）
+        "@typescript-eslint/no-require-imports": "off",
         "@typescript-eslint/no-var-requires": "off",
         // 允许使用 var (可选，有些老配置文件可能用 var)
         "no-var": "off",
