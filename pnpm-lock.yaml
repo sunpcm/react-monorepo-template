@@ -20,6 +20,9 @@ importers:
       '@niu/eslint-config':
         specifier: workspace:*
         version: link:packages/configs/eslint-config
+      cross-env:
+        specifier: ^10.1.0
+        version: 10.1.0
       husky:
         specifier: ^9.1.7
         version: 9.1.7

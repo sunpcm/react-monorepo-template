@@ -4,6 +4,9 @@ import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
+  // Turbo may treat different env vars as cache hits unless we include them in task inputs.
+  // Also, Vite clears outDir by default; to ensure our report artifact doesn't get deleted,
+  // we emit it outside dist and treat it as a separate output.
   plugins: [
     react(),
     ...(process.env.ANALYZE === "true"
@@ -12,7 +15,7 @@ export default defineConfig({
             open: false,
             gzipSize: true,
             brotliSize: true,
-            filename: "dist/stats.html",
+            filename: "stats.html",
           }),
         ]
       : []),

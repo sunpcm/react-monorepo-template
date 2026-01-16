@@ -3,6 +3,13 @@
   "version": "1.0.1",
   "description": "",
   "main": "index.tsx",
+  "types": "index.tsx",
+  "exports": {
+    ".": {
+      "types": "./index.tsx",
+      "default": "./index.tsx"
+    }
+  },
   "scripts": {
     "test": "echo \"(@niu/ui-lib) no tests\""
   },

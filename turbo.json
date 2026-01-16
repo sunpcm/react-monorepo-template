@@ -18,11 +18,13 @@
                 "vite.config.*",
                 ".env",
                 ".env.*",
+                "$ANALYZE",
+                "$SOURCE_MAP",
                 "eslint.config.*",
                 ".browserslistrc",
                 "browserslist"
             ],
-            "outputs": ["dist/**"]
+            "outputs": ["dist/**", "stats.html"]
         },
         "lint": {
             "inputs": [
