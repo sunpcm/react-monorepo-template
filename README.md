@@ -1,97 +1,133 @@
-# monorepo-study-note
+# Modern React Monorepo Template
 
-A small monorepo for studying and comparing modern frontend tooling.
+🚀 **Monorepo 模板** | 基于 Turborepo + pnpm Workspaces 构建
 
-- **Package manager**: pnpm workspaces
-- **Task runner / build pipeline**: Turborepo
-- **Linting**: ESLint v9 (Flat Config)
+这是一个集成了前端生态最新标准的高性能 Monorepo 模板。是一套关于**配置管理**、**依赖治理**和**架构分层**的实践集合。
 
-## Repo structure
+## ✨ 核心特性 (Why this repo?)
 
-- `apps/`
-  - `vite-app/`: React app powered by Vite
-  - `webpack-app/`: React app powered by Webpack 5
-- `packages/`
-  - `ui-lib/`: `@niu/ui-lib` shared UI library
-  - `configs/`
-    - `eslint-config/`: `@niu/eslint-config` shared ESLint preset (Flat Config export)
-    - `postcss-config/`: `@niu/postcss-config`
-    - `tailwind-config/`: `@niu/tailwind-config`
-    - `tsconfig/`: `@niu/tsconfig`
+本项目采用了目前最前沿的技术栈组合，解决了传统 Monorepo 的常见痛点：
 
-## Prerequisites
+* **⚡️ 极速构建 (Turborepo)**: 智能任务编排与远程缓存，支持增量构建与按需执行。
+* **📦 依赖治理 (pnpm Catalog)**: 使用 pnpm 9.x 的 `catalog:` 特性，在根目录统一管理 React, TypeScript, Tailwind 等核心依赖版本，彻底消灭“版本不一致”问题。
+* **🎨 下一代样式 (Tailwind CSS v4)**: 采用 **CSS-first** 架构，利用原生 CSS 变量和 `@theme` 指令管理设计系统，摒弃复杂的 JS 配置。
+* **🛡️ 现代工程化 (ESLint v9)**: 全面拥抱 **Flat Config**，配合 Prettier、Husky 和 Lint-staged，提供极致的代码规范保护。
+* **🧩 架构分层 (App as Shell)**: 提倡“应用即壳，业务下沉”的架构模式，实现业务逻辑的极致复用。
 
-- Node.js (recent LTS recommended)
-- pnpm (pinned by root `package.json#packageManager`)
+## 🏗️ 架构概览
 
-## Quick start
+```text
+.
+├── apps/                   # 【应用层】(组装车间)
+│   ├── vite-app/           # 基于 Vite 的应用壳子
+│   └── webpack-app/        # 基于 Webpack 5 的应用壳子
+│
+├── packages/               # 【依赖层】(零件工厂)
+│   ├── ui-lib/             # 共享 UI 组件库 (无业务逻辑)
+│   └── configs/            # 【配置中心】(Single Source of Truth)
+│       ├── eslint-config/  # 共享 ESLint Flat Config
+│       ├── postcss-config/ # 共享 PostCSS 配置
+│       ├── tailwind-config/# 共享 Tailwind v4 主题与变量
+│       └── tsconfig/       # 共享 TypeScript 基础配置
+│
+├── .changeset/             # 版本发布管理
+├── turbo.json              # 任务编排配置
+└── pnpm-workspace.yaml     # 工作区定义 & Catalog 版本管理
 
-```bash
-pnpm -w install
-pnpm dev
 ```
 
-## Common scripts (root)
+## 🚀 快速开始
+
+### 前置要求
+
+* Node.js >= 18
+* pnpm >= 9.x
+
+### 安装依赖
+
+```bash
+pnpm install
+
+```
+
+### 启动开发环境
+
+同时启动所有应用（利用 Turbo 并行执行）：
 
 ```bash
 pnpm dev
-pnpm dev:vite
-pnpm dev:webpack
 
-pnpm lint
-pnpm typecheck
-pnpm test
+```
+
+或者只启动特定应用：
+
+```bash
+pnpm dev --filter=vite-app
+
+```
+
+### 构建项目
+
+```bash
 pnpm build
+
 ```
 
-### Bundle analysis
+## 🛠️ 最佳实践指南
 
-```bash
-pnpm -w build:analyze:vite
-pnpm -w build:analyze:webpack
+### 1. 配置管理 (Configuration)
+
+本仓库遵循 **"Single Source of Truth"** 原则。所有的工程化配置（TS, ESLint, Tailwind）都提取到了 `packages/configs` 中。
+
+* **新增配置**：请在 `packages/configs` 下修改，不要在 App 内部通过复制粘贴解决。
+* **引用配置**：App 通过 `package.json` 的 `devDependencies` 引入共享包，例如 `"@niu/tsconfig": "workspace:*"`。
+
+### 2. 样式开发 (Tailwind v4)
+
+我们使用 Tailwind v4 的 CSS-first 模式。在引入共享主题时，**必须严格遵守以下顺序**，否则会导致编译错误：
+
+```css
+/* apps/xxx/src/styles.css */
+
+/* ✅ 正确顺序：先配置，后生成 */
+
+/* 1. 引入共享配置 (定义变量) */
+@import "@niu/tailwind-config";
+
+/* 2. 引入框架核心 (生成工具类) */
+@import "tailwindcss";
+
+/* 3. 配置扫描路径 */
+@source "../index.html";
+@source "./**/*.{js,jsx,ts,tsx}";
+@source "../../packages/ui-lib/**/*.{js,jsx,ts,tsx}";
+
 ```
 
-## ESLint (v9 Flat Config)
+### 3. 业务开发 (App as Shell)
 
-- Root config: `eslint.config.js`
-- Shared preset: `packages/configs/eslint-config` (published as `@niu/eslint-config`)
+为了最大化代码复用，建议遵循以下开发流：
 
-## Version management with pnpm catalog
+* **UI 组件**：放入 `packages/ui-lib`。
+* **业务逻辑/Hooks/状态**：建议新建 `packages/features` 或 `packages/core` (Coming Soon)。
+* **应用 (Apps)**：仅作为“壳”，负责路由配置、Providers 注入和组件组装。
 
-This repo uses **pnpm catalog** (`pnpm-workspace.yaml`) to centralize versions for shared, cross-workspace dependencies.
+## 📦 常用命令速查
 
-In workspace `package.json`, shared deps typically use:
+| 命令 | 说明 |
+| --- | --- |
+| `pnpm dev` | 启动所有应用的开发服务器 |
+| `pnpm build` | 构建所有应用和包 |
+| `pnpm lint` | 执行 ESLint 代码检查 |
+| `pnpm typecheck` | 执行 TypeScript 类型检查 |
+| `pnpm clean:all` | 清理所有 node_modules 和构建产物 |
+| `pnpm changeset` | 生成发版变更日志 (用于发布流程) |
 
-- `"catalog:"` — version comes from the root catalog
+## 🤝 贡献与规范
 
-## Troubleshooting
+* **提交规范**: 遵循 Conventional Commits (例如: `feat: add new button component`)。
+* **代码风格**: 提交前会自动运行 `eslint --fix`，请确保无报错。
 
-### pnpm warning: "Ignored build scripts" (e.g. `esbuild`, `core-js-pure`)
+---
 
-During `pnpm install`, you may see:
-
-> Ignored build scripts: core-js-pure@..., esbuild@...
-
-What it means:
-
-- Some packages define `install/postinstall/prepare` scripts.
-- pnpm may skip running certain dependency scripts by default (security measure).
-
-If you ever hit errors that look like missing native binaries (often related to `esbuild`), you can explicitly allow scripts via:
-
-```bash
-pnpm approve-builds
-```
-
-## Quality gates
-
-```bash
-pnpm -w lint
-pnpm -w typecheck
-pnpm -w test
-pnpm -w build
-```
-
-## Notes
-
-- Improvement checklist and audit history: `issue2.md`
+Built with ❤️ using [Turborepo](https://turbo.build/repo) & [pnpm](https://pnpm.io/).

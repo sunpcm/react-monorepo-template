@@ -8,7 +8,7 @@ const App = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold text-brand-600 mb-8">
-          Hello Webpack + Tailwind!
+          Hello Webpack
         </h1>
 
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
