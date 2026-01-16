@@ -1,6 +1,7 @@
 packages:
   - apps/*
   - packages/*
+  - packages/configs/*
 
 catalog:
   '@tailwindcss/postcss': ^4.1.18

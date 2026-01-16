@@ -2,6 +2,7 @@
 # Dependencies
 ############################
 node_modules/
+**/**/node_modules
 
 ############################
 # Build outputs
@@ -20,8 +21,21 @@ coverage/
 .parcel-cache/
 .eslintcache
 
-# Vite cache (some setups write here)
-**/.vite/
+# Webpack 构建缓存 (FileSystem Cache)
+.webpack_cache/
+
+# Vite 预构建缓存 (如果之前没加)
+.vite/
+
+# ESLint 缓存 (如果你开了 --cache)
+.eslintcache
+
+# Turbo 缓存/输出 (虽然通常默认有，但检查一下)
+.turbo/
+
+# Stats reports (Vite build:analyze:vite)
+stats.html
+dist/stats.html
 
 ############################
 # Logs
