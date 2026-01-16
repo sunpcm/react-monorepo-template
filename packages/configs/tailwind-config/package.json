@@ -1,7 +1,6 @@
 {
   "name": "@niu/tailwind-config",
   "version": "1.0.0",
-  "type": "module",
   "main": "./theme.css",
   "exports": {
     ".": "./theme.css"

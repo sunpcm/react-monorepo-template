@@ -38,6 +38,7 @@ const App = () => {
           </ul>
         </div>
       </div>
+      <div className="bg-brand-500 p-18">测试共享主题</div>
     </div>
   );
 };

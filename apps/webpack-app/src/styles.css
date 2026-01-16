@@ -1,3 +1,6 @@
+/* 引入共享主题 */
+@import "@niu/tailwind-config";
+
 /* 引入 Tailwind v4 */
 @import "tailwindcss";
 
@@ -5,9 +8,6 @@
 @source "./**/*.{js,jsx,ts,tsx}";
 @source "../public/index.html";
 @source "../../packages/**/*.{js,jsx,ts,tsx}";
-
-/* 引入共享主题 */
-@import "@niu/tailwind-config";
 
 /* 自定义样式 */
 @layer base {
