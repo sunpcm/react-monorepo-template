@@ -12,7 +12,6 @@ module.exports = {
         "**/build/webpack.*.js", // 兼容旧目录
         "**/.babelrc.js", // Babel 配置
         "**/postcss.config.js", // PostCSS 配置
-        "**/tailwind.config.js", // Tailwind 配置
         "**/.eslintrc.js", // ESLint 自身配置
         "**/vite.config.ts", // Vite 配置 (通常是 TS，但如果是 JS 也需要 node 环境)
       ],

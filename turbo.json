@@ -10,7 +10,6 @@
                 "package.json",
                 "tsconfig*.json",
                 "postcss.config.*",
-                "tailwind.config.*",
                 ".babelrc*",
                 "babel.config.*",
                 "config/**",
