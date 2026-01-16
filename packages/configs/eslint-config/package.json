@@ -21,5 +21,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "prettier": "@niu/prettier-config"
 }

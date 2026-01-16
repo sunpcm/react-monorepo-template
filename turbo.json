@@ -1,53 +1,47 @@
 {
-    "$schema": "https://turbo.build/schema.json",
-    "tasks": {
-        "build": {
-            "dependsOn": ["^build"],
-            "inputs": [
-                "src/**",
-                "public/**",
-                "index.html",
-                "package.json",
-                "tsconfig*.json",
-                "postcss.config.*",
-                ".babelrc*",
-                "babel.config.*",
-                "config/**",
-                "webpack*.js",
-                "vite.config.*",
-                ".env",
-                ".env.*",
-                "$ANALYZE",
-                "$SOURCE_MAP",
-                "eslint.config.*",
-                ".browserslistrc",
-                "browserslist"
-            ],
-            "outputs": ["dist/**", "stats.html"]
-        },
-        "lint": {
-            "inputs": [
-                "src/**",
-                "package.json",
-                "eslint.config.*",
-                ".eslintignore",
-                "tsconfig*.json"
-            ],
-            "outputs": []
-        },
-        "typecheck": {
-            "dependsOn": ["^typecheck"],
-            "inputs": ["src/**", "package.json", "tsconfig*.json"],
-            "outputs": []
-        },
-        "test": {
-            "dependsOn": ["^test"],
-            "inputs": ["src/**", "package.json"],
-            "outputs": []
-        },
-        "dev": {
-            "cache": false,
-            "persistent": true
-        }
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**",
+        "public/**",
+        "index.html",
+        "package.json",
+        "tsconfig*.json",
+        "postcss.config.*",
+        ".babelrc*",
+        "babel.config.*",
+        "config/**",
+        "webpack*.js",
+        "vite.config.*",
+        ".env",
+        ".env.*",
+        "$ANALYZE",
+        "$SOURCE_MAP",
+        "eslint.config.*",
+        ".browserslistrc",
+        "browserslist"
+      ],
+      "outputs": ["dist/**", "stats.html"]
+    },
+    "lint": {
+      "inputs": ["src/**", "package.json", "eslint.config.*", ".eslintignore", "tsconfig*.json"],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "inputs": ["src/**", "package.json", "tsconfig*.json"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "inputs": ["src/**", "package.json"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
     }
+  }
 }

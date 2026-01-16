@@ -6,10 +6,6 @@
 @source "../index.html";
 @source "../../packages/**/*.{js,jsx,ts,tsx}";
 
-
-
-
-
 /* 自定义样式 */
 @layer base {
   body {
@@ -21,7 +17,7 @@
   .btn-primary {
     @apply px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 transition-colors;
   }
-  
+
   .card {
     @apply bg-white rounded-lg shadow-md p-6;
   }

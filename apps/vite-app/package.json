@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
     "preview": "vite preview",
-  "lint": "eslint src --report-unused-disable-directives",
+    "lint": "eslint src --report-unused-disable-directives",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "echo \"(vite-app) no tests\""
   },
@@ -35,5 +35,6 @@
     "@niu/ui-lib": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:"
-  }
+  },
+  "prettier": "@niu/prettier-config"
 }

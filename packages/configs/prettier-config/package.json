@@ -1,0 +1,19 @@
+{
+  "name": "@niu/prettier-config",
+  "version": "1.0.0",
+  "description": "Shared Prettier config for the monorepo",
+  "main": "index.cjs",
+  "exports": {
+    ".": "./index.cjs"
+  },
+  "peerDependencies": {
+    "prettier": "catalog:"
+  },
+  "keywords": [
+    "prettier",
+    "prettier-config",
+    "monorepo"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -10,5 +10,7 @@
   },
   "scripts": {
     "test": "echo \"(@niu/tailwind-config) no tests\""
-  }
+  },
+  "license": "ISC",
+  "prettier": "@niu/prettier-config"
 }

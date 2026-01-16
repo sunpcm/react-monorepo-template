@@ -9,10 +9,11 @@
   "peerDependencies": {
     "@tailwindcss/postcss": "catalog:",
     "autoprefixer": "catalog:",
-    "postcss": "catalog:",
     "tailwindcss": "catalog:"
   },
   "scripts": {
     "test": "echo \"(@niu/postcss-config) no tests\""
-  }
+  },
+  "license": "ISC",
+  "prettier": "@niu/prettier-config"
 }
