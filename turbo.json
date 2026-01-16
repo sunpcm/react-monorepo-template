@@ -5,6 +5,7 @@
             "dependsOn": ["^build"],
             "inputs": [
                 "src/**",
+                "src/**/*.css",
                 "public/**",
                 "index.html",
                 "package.json",

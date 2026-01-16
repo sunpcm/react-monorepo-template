@@ -1,8 +1,13 @@
+/* 引入共享主题（@theme tokens 必须在 tailwindcss 之前声明，@apply 才能识别自定义 utilities） */
+@import "@niu/tailwind-config";
+
 /* 引入 Tailwind v4 */
 @import "tailwindcss";
 
-/* 引入共享主题 */
-@import "@niu/tailwind-config";
+/* Tailwind v4 CSS-first: 把扫描路径写在 CSS 里（替代 tailwind.config.js 的 content） */
+@source "./**/*.{js,jsx,ts,tsx}";
+@source "../index.html";
+@source "../../packages/**/*.{js,jsx,ts,tsx}";
 
 /* 自定义样式 */
 @layer base {

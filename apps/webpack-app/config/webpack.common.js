@@ -78,7 +78,7 @@ module.exports = {
             path.resolve(__dirname, "./webpack.prod.js"),
             path.resolve(__dirname, "../.babelrc"),
             path.resolve(__dirname, "../postcss.config.js"),
-            path.resolve(__dirname, "../tailwind.config.js"),
+            path.resolve(__dirname, "../src/styles.css"),
           ],
         },
         name: process.env.NODE_ENV,

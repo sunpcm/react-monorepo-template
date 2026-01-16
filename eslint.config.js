@@ -33,6 +33,13 @@ module.exports = [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "commonjs",
+      globals: {
+        __dirname: "readonly",
+        __filename: "readonly",
+        module: "readonly",
+        require: "readonly",
+        process: "readonly",
+      },
     },
     rules: {
       "@typescript-eslint/no-require-imports": "off",

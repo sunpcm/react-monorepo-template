@@ -1,6 +1,11 @@
 /* 引入 Tailwind v4 */
 @import "tailwindcss";
 
+/* Tailwind v4 CSS-first: 把扫描路径从 tailwind.config.js 迁移到 CSS */
+@source "./**/*.{js,jsx,ts,tsx}";
+@source "../public/index.html";
+@source "../../packages/**/*.{js,jsx,ts,tsx}";
+
 /* 引入共享主题 */
 @import "@niu/tailwind-config";
 
