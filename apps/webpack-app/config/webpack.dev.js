@@ -1,7 +1,8 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"); // ✅ 新增
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const cfg = merge(common, {
   mode: "development",
@@ -40,8 +41,10 @@ const cfg = merge(common, {
     ],
   },
   plugins: [
-    // ✅ 新增：React Fast Refresh 插件
+    // React Fast Refresh 插件
     new ReactRefreshWebpackPlugin(),
+    // TypeScript 类型检查插件
+    new ForkTsCheckerWebpackPlugin(),
   ],
   module: {
     rules: [

@@ -4,15 +4,18 @@ import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  // 插件
   plugins: [
-    react(), // 提供 Fast Refresh 和 JSX 环境
-    visualizer({
-      open: false, // 构建完自动打开
-      gzipSize: true, // 显示 gzip 大小
-      brotliSize: true, // 显示 brotli 大小
-      filename: "dist/stats.html", // 生成的文件位置
-    }),
+    react(),
+    ...(process.env.ANALYZE === "true"
+      ? [
+          visualizer({
+            open: false,
+            gzipSize: true,
+            brotliSize: true,
+            filename: "dist/stats.html",
+          }),
+        ]
+      : []),
   ],
   server: {
     port: 5173,
@@ -42,21 +45,14 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
+    warmup: {
+      clientFiles: ["./index.html", "./src/index.tsx"],
+    },
   },
   // 解析
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-    },
-  },
-
-  // css 预处理
-  // 不用配loader，如果想注入全局 scss变量，可以在这里配置
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // additionalData: `@import "@/styles/variables.scss";`
-      },
     },
   },
 
@@ -71,5 +67,8 @@ export default defineConfig({
         },
       },
     },
+  },
+  optimizeDeps: {
+    include: ["react", "react-dom"],
   },
 });
