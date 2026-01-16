@@ -7,10 +7,10 @@
     ".": "./index.js"
   },
   "peerDependencies": {
-    "@tailwindcss/postcss": "^4.0.0",
-    "autoprefixer": "^10.0.0",
-    "postcss": "^8.0.0",
-    "tailwindcss": "^4.0.0"
+    "@tailwindcss/postcss": "catalog:",
+    "autoprefixer": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:"
   },
   "scripts": {
     "test": "echo \"(@niu/postcss-config) no tests\""

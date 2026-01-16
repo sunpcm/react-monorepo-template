@@ -14,27 +14,26 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.26.0",
   "devDependencies": {
     "@niu/eslint-config": "workspace:*",
     "@niu/postcss-config": "workspace:*",
     "@niu/tailwind-config": "workspace:*",
     "@niu/tsconfig": "workspace:*",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "^5.1.2",
-    "autoprefixer": "^10.4.23",
-    "eslint": "^8.57.1",
-    "postcss": "^8.5.6",
+    "autoprefixer": "catalog:",
+    "eslint": "catalog:",
+    "postcss": "catalog:",
     "postcss-nesting": "^14.0.0",
     "rollup-plugin-visualizer": "^6.0.5",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:",
     "vite": "^7.3.0"
   },
   "dependencies": {
     "@niu/ui-lib": "workspace:*",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react": "catalog:",
+    "react-dom": "catalog:"
   }
 }
