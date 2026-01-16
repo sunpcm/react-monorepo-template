@@ -102,6 +102,9 @@ importers:
       '@niu/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
+      '@niu/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@niu/ui-lib':
         specifier: workspace:*
         version: link:../../packages/ui-lib

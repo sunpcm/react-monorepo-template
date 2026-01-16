@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "build:analyze": "cross-env NODE_ENV=production ANALYZE=true webpack --config config/webpack.prod.js"
+    "serve": "npx --yes serve dist -l 8080",
+    "build:analyze": "cross-env NODE_ENV=production ANALYZE=true SOURCE_MAP=true webpack --config config/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "dependencies": {
     "@babel/runtime": "^7.28.6",
     "@niu/postcss-config": "workspace:*",
+    "@niu/tsconfig": "workspace:*",
     "@niu/tailwind-config": "workspace:*",
     "@niu/ui-lib": "workspace:*",
     "react": "^19.2.3",
@@ -45,7 +47,6 @@
     "postcss-loader": "^8.2.0",
     "postcss-nesting": "^14.0.0",
     "react-refresh": "^0.18.0",
-    "sass": "^1.97.1",
     "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^4.0.0",
     "tailwindcss": "^4.1.18",

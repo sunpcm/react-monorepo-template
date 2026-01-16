@@ -1,45 +1,57 @@
-const { merge }  = require('webpack-merge')
-const common = require('./webpack.common.js')
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
+const shouldAnalyze = process.env.ANALYZE === "true";
+const shouldSourceMap = process.env.SOURCE_MAP === "true";
 
 module.exports = merge(common, {
-	mode: 'production',
-	devtool: 'source-map',
-	output: {
-		path: path.resolve(__dirname, '../dist'),
-		filename: '[name].[contenthash].js',
-		clean: true,
-	},
-	plugins: [
-		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash].css'
-		}),
-		new BundleAnalyzerPlugin({
-			// analyzerMode: 'server', // 默认模式：启动一个 HTTP 服务器展示
-			analyzerMode: 'static', // 推荐模式：生成一个 HTML 文件 (不占用端口，方便查看)
-			openAnalyzer: true,     // 构建完自动打开浏览器
-			reportFilename: 'bundle-report.html', // 生成的文件名
-		}),
-	],
-	module: {
-		rules: [
-			{
-				test: /\.(css|scss)$/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'sass-loader'
-				]
-			}
-		]
-	},
-	optimization: {
-		splitChunks: {
-			chunks: 'all'
-			// 默认情况下，Webpack 会把 node_modules 里的东西单独打包成 vendors
-		}
-	}
-})
+  mode: "production",
+  devtool: shouldSourceMap ? "source-map" : false,
+  output: {
+    path: path.resolve(__dirname, "../dist"),
+    filename: "[name].[contenthash].js",
+    clean: true,
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css",
+    }),
+
+    // 仅在 ANALYZE=true 时生成报告
+    ...(shouldAnalyze
+      ? [
+          new BundleAnalyzerPlugin({
+            analyzerMode: "static",
+            openAnalyzer: false,
+            reportFilename: "bundle-report.html",
+          }),
+        ]
+      : []),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1 },
+          },
+          {
+            loader: "postcss-loader",
+          },
+        ],
+      },
+    ],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
+});

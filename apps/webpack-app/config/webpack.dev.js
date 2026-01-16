@@ -6,7 +6,7 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 const cfg = merge(common, {
   mode: "development",
   // 源码映射 (Source Map)
-  // 决定了你在浏览器 F12 里看到的是什么代码
+  // 决定了在浏览器 F12 里看到的是什么代码
   // eval-source-map: 构建速度中等，重构建速度快，质量高（能看到源码原始行号）
   devtool: "eval-source-map",
   // 开发服务器 (DevServer)
@@ -46,7 +46,7 @@ const cfg = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(css|scss)$/,
+        test: /\.css$/,
         use: [
           "style-loader",
           {
@@ -55,27 +55,11 @@ const cfg = merge(common, {
           },
           {
             loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-              postcssOptions: {
-                plugins: ["@tailwindcss/postcss", "autoprefixer"],
-              },
-            },
           },
         ],
       },
     ],
   },
 });
-
-console.log(
-  cfg.module.rules.map((r) => ({
-    test: r.test && r.test.toString(),
-    include: r.include,
-    exclude: r.exclude,
-    use: r.use,
-    loader: r.loader,
-  }))
-);
 
 module.exports = cfg;

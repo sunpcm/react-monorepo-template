@@ -1,4 +1,5 @@
 {
+  "extends": "@niu/tsconfig/react.json",
   "compilerOptions": {
     // === 编译输出控制 ===
     "target": "ES5", // 虽然 Babel 会转，但 TS 检查时假设你的运行环境是 ES5
@@ -17,7 +18,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@ui-lib/*": ["../../packages/ui-lib/index.ts"]
     }
   },
   "include": ["src"]
