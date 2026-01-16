@@ -45,4 +45,33 @@ module.exports = [
       "@typescript-eslint/no-explicit-any": "warn",
     },
   },
+
+  // Node/CommonJS config files (webpack/vite/postcss/eslint configs, etc.)
+  // Keeping this here avoids duplicating globals/relaxed rules in the repo root eslint.config.js.
+  {
+    files: [
+      "**/config/webpack.*.js",
+      "**/build/webpack.*.js",
+      "**/.babelrc.js",
+      "**/postcss.config.js",
+      "**/eslint.config.js",
+      "**/vite.config.{ts,js}",
+    ],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "commonjs",
+      globals: {
+        __dirname: "readonly",
+        __filename: "readonly",
+        module: "readonly",
+        require: "readonly",
+        process: "readonly",
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "no-var": "off",
+    },
+  },
 ];
