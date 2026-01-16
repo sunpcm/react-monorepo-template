@@ -8,5 +8,8 @@
   },
   "peerDependencies": {
     "tailwindcss": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"(@niu/tailwind-config) no tests\""
   }
 }

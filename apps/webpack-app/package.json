@@ -7,7 +7,10 @@
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "serve": "npx --yes serve dist -l 8080",
-    "build:analyze": "cross-env NODE_ENV=production ANALYZE=true SOURCE_MAP=true webpack --config config/webpack.prod.js"
+    "build:analyze": "cross-env NODE_ENV=production ANALYZE=true SOURCE_MAP=true webpack --config config/webpack.prod.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --ext ts,tsx,js,jsx --report-unused-disable-directives --max-warnings 0",
+    "test": "echo \"(webpack-app) no tests\""
   },
   "keywords": [],
   "author": "",

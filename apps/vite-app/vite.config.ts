@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(), // 提供 Fast Refresh 和 JSX 环境
     visualizer({
-      open: true, // 构建完自动打开
+      open: false, // 构建完自动打开
       gzipSize: true, // 显示 gzip 大小
       brotliSize: true, // 显示 brotli 大小
       filename: "dist/stats.html", // 生成的文件位置

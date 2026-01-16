@@ -3,7 +3,46 @@
     "tasks": {
         "build": {
             "dependsOn": ["^build"],
+            "inputs": [
+                "src/**",
+                "public/**",
+                "index.html",
+                "package.json",
+                "tsconfig*.json",
+                "postcss.config.*",
+                "tailwind.config.*",
+                ".babelrc*",
+                "babel.config.*",
+                "config/**",
+                "webpack*.js",
+                "vite.config.*",
+                ".env",
+                ".env.*",
+                "eslint.config.*",
+                ".browserslistrc",
+                "browserslist"
+            ],
             "outputs": ["dist/**"]
+        },
+        "lint": {
+            "inputs": [
+                "src/**",
+                "package.json",
+                ".eslintrc.*",
+                ".eslintignore",
+                "tsconfig*.json"
+            ],
+            "outputs": []
+        },
+        "typecheck": {
+            "dependsOn": ["^typecheck"],
+            "inputs": ["src/**", "package.json", "tsconfig*.json"],
+            "outputs": []
+        },
+        "test": {
+            "dependsOn": ["^test"],
+            "inputs": ["src/**", "package.json"],
+            "outputs": []
         },
         "dev": {
             "cache": false,

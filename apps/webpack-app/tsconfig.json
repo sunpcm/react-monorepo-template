@@ -2,7 +2,7 @@
   "extends": "@niu/tsconfig/react.json",
   "compilerOptions": {
     // === 编译输出控制 ===
-    "target": "ES5", // 虽然 Babel 会转，但 TS 检查时假设你的运行环境是 ES5
+    "target": "ES2020", // 虽然 Babel 会转，但 TS 检查时假设你的运行环境是 ES5
     "module": "ESNext", // 保持 import/export 语句
     "jsx": "react-jsx", // 对应 Babel 的 runtime: automatic
 
