@@ -1,5 +1,5 @@
 {
-  "name": "@niu/prettier-config",
+  "name": "@biu/prettier-config",
   "version": "1.0.0",
   "description": "Shared Prettier config for the monorepo",
   "main": "index.cjs",

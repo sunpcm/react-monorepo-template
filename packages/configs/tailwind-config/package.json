@@ -1,5 +1,5 @@
 {
-  "name": "@niu/tailwind-config",
+  "name": "@biu/tailwind-config",
   "version": "1.0.0",
   "main": "./theme.css",
   "exports": {
@@ -9,8 +9,8 @@
     "tailwindcss": "catalog:"
   },
   "scripts": {
-    "test": "echo \"(@niu/tailwind-config) no tests\""
+    "test": "echo \"(@biu/tailwind-config) no tests\""
   },
   "license": "ISC",
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }

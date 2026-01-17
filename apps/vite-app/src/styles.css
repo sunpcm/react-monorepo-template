@@ -1,4 +1,4 @@
-@import "@niu/tailwind-config";
+@import "@biu/tailwind-config";
 @import "tailwindcss";
 
 /* Tailwind v4 CSS-first: 把扫描路径写在 CSS 里（替代 tailwind.config.js 的 content） */
@@ -9,16 +9,16 @@
 /* 自定义样式 */
 @layer base {
   body {
-    @apply text-gray-900 bg-white;
+    @apply bg-white text-gray-900;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 transition-colors;
+    @apply bg-brand-500 hover:bg-brand-600 rounded px-4 py-2 text-white transition-colors;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply rounded-lg bg-white p-6 shadow-md;
   }
 }

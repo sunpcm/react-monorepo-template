@@ -1,3 +1,3 @@
-import config from "@niu/postcss-config";
+import config from "@biu/postcss-config";
 
 export default config;

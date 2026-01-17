@@ -1,3 +1,3 @@
-const config = require("@niu/postcss-config");
+const config = require("@biu/postcss-config");
 
 module.exports = config;

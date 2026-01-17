@@ -80,7 +80,7 @@ pnpm build
 本仓库遵循 **"Single Source of Truth"** 原则。所有的工程化配置（TS, ESLint, Tailwind）都提取到了 `packages/configs` 中。
 
 - **新增配置**：请在 `packages/configs` 下修改，不要在 App 内部通过复制粘贴解决。
-- **引用配置**：App 通过 `package.json` 的 `devDependencies` 引入共享包，例如 `"@niu/tsconfig": "workspace:*"`。
+- **引用配置**：App 通过 `package.json` 的 `devDependencies` 引入共享包，例如 `"@biu/tsconfig": "workspace:*"`。
 
 ### 2. 样式开发 (Tailwind v4)
 
@@ -92,7 +92,7 @@ pnpm build
 /* ✅ 正确顺序：先配置，后生成 */
 
 /* 1. 引入共享配置 (定义变量) */
-@import "@niu/tailwind-config";
+@import "@biu/tailwind-config";
 
 /* 2. 引入框架核心 (生成工具类) */
 @import "tailwindcss";
@@ -123,9 +123,9 @@ pnpm build
 
 当你新建一个 workspace package（`packages/*` 或 `packages/configs/*`）时，通常需要手工补齐：
 
-- `@niu/eslint-config`（统一 ESLint v9 Flat Config）
-- `@niu/tsconfig`（统一 TS 配置）
-- `"prettier": "@niu/prettier-config"`（方案 A）
+- `@biu/eslint-config`（统一 ESLint v9 Flat Config）
+- `@biu/tsconfig`（统一 TS 配置）
+- `"prettier": "@biu/prettier-config"`（方案 A）
 
 为了避免重复劳动，本仓库提供了 Plop 生成器。
 
@@ -139,7 +139,7 @@ pnpm -w new:pkg
 
 - 生成到 `packages/` 还是 `packages/configs/`
 - 是否生成带 React peerDependencies 的包
-- 包名默认会自动补 `@niu/` 前缀（当然也支持你直接输入 `@niu/foo`）
+- 包名默认会自动补 `@biu/` 前缀（当然也支持你直接输入 `@biu/foo`）
 
 ### 非交互式创建（可用于脚本）
 

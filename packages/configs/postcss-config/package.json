@@ -1,5 +1,5 @@
 {
-  "name": "@niu/postcss-config",
+  "name": "@biu/postcss-config",
   "version": "1.0.0",
   "type": "module",
   "main": "./index.js",
@@ -12,8 +12,8 @@
     "tailwindcss": "catalog:"
   },
   "scripts": {
-    "test": "echo \"(@niu/postcss-config) no tests\""
+    "test": "echo \"(@biu/postcss-config) no tests\""
   },
   "license": "ISC",
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }

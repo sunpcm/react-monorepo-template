@@ -4,7 +4,7 @@
  * Design goals:
  * - Keep new packages consistent (eslint/prettier/tsconfig wiring)
  * - Allow choosing destination: packages/ or packages/configs/ (or custom)
- * - Default to @niu scoped packages
+ * - Default to @biu scoped packages
  */
 
 const path = require("node:path");
@@ -12,7 +12,7 @@ const { execSync } = require("node:child_process");
 
 /**
  * Convert a user-provided name into a safe folder name.
- * - "@niu/foo-bar" -> "foo-bar"
+ * - "@biu/foo-bar" -> "foo-bar"
  * - "foo-bar" -> "foo-bar"
  */
 function toFolderName(raw) {
@@ -27,8 +27,8 @@ function toFolderName(raw) {
 
 /**
  * Ensure we always generate a scoped package name.
- * - "foo" -> "@niu/foo"
- * - "@niu/foo" -> "@niu/foo"
+ * - "foo" -> "@biu/foo"
+ * - "@biu/foo" -> "@biu/foo"
  */
 function toScopedName(raw, scope) {
   const name = String(raw || "").trim();
@@ -78,7 +78,7 @@ module.exports = function (plop) {
   };
 
   plop.setGenerator("package", {
-    description: "Create a new workspace package (default @niu/*)",
+    description: "Create a new workspace package (default @biu/*)",
     prompts: [
       {
         type: "input",
@@ -89,7 +89,7 @@ module.exports = function (plop) {
       {
         type: "input",
         name: "name",
-        message: "Package name (e.g. foo or @niu/foo):",
+        message: "Package name (e.g. foo or @biu/foo):",
         default: cliDefaults.name,
         validate: (v) => (String(v || "").trim() ? true : "Package name is required"),
       },

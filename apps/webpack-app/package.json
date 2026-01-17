@@ -17,10 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.28.6",
-    "@niu/postcss-config": "workspace:*",
-    "@niu/tsconfig": "workspace:*",
-    "@niu/tailwind-config": "workspace:*",
-    "@niu/ui-lib": "workspace:*",
+    "@biu/postcss-config": "workspace:*",
+    "@biu/tsconfig": "workspace:*",
+    "@biu/tailwind-config": "workspace:*",
+    "@biu/ui-lib": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
@@ -61,5 +61,5 @@
     "webpack-dev-server": "^5.2.3",
     "webpack-merge": "^6.0.1"
   },
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }

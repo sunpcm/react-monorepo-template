@@ -1,45 +1,20 @@
-{ 
-    "name": "{{name}}", 
-    "version": "0.1.0", 
-    "description": "", 
-    "keywords": [], 
-    "author": "",
-    "license": "ISC", 
-    "prettier": "@niu/prettier-config",
+{ "name": "{{name}}", "version": "0.1.0", "description": "", "keywords": [], "author": "",
+"license": "ISC", "prettier": "@biu/prettier-config",
 {{#if (eq kind "lib")}}
-  "type": "module", 
-  "main": "./dist/index.js", 
-  "types": "./dist/index.d.ts", 
-  "exports": { ".": {
-  "types": "./dist/index.d.ts", "default": "./dist/index.js" } }, 
-  "files": [ "dist" ], 
-  "scripts": {
-  "build": "pnpm exec tsc -p tsconfig.json --emitDeclarationOnly false", 
-  "lint": "pnpm exec eslint src --report-unused-disable-directives", "typecheck": "pnpm exec tsc -p tsconfig.json --noEmit",
+  "type": "module", "main": "./dist/index.js", "types": "./dist/index.d.ts", "exports": { ".": {
+  "types": "./dist/index.d.ts", "default": "./dist/index.js" } }, "files": [ "dist" ], "scripts": {
+  "build": "pnpm exec tsc -p tsconfig.json --emitDeclarationOnly false", "lint": "pnpm exec eslint
+  src --report-unused-disable-directives", "typecheck": "pnpm exec tsc -p tsconfig.json --noEmit",
   "test": "echo \"({{name}}) no tests\"" },
   {{#if react}}
     "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" },
   {{/if}}
-  "devDependencies": { 
-    "@niu/eslint-config": "workspace:*", 
-    "@niu/tsconfig": "workspace:*",
-    "@types/node": "catalog:", 
-    "eslint": "catalog:", 
-    "typescript": "catalog:" 
-    }
+  "devDependencies": { "@biu/eslint-config": "workspace:*", "@biu/tsconfig": "workspace:*",
+  "@types/node": "catalog:", "eslint": "catalog:", "typescript": "catalog:" }
 {{else}}
-  "type": "module", 
-  "main": "./index.js", 
-  "exports": { ".": "./index.js" }, 
-  "scripts": { "test":
-    "echo \"({{name}}) no tests\"" 
-}, 
-    "devDependencies": {
-        "@niu/eslint-config": "workspace:*",
-  "@niu/tsconfig": "workspace:*", 
-  "@types/node": "catalog:", 
-  "eslint": "catalog:", 
-  "typescript": "catalog:" 
-  }
+  "type": "module", "main": "./index.js", "exports": { ".": "./index.js" }, "scripts": { "test":
+  "echo \"({{name}}) no tests\"" }, "devDependencies": { "@biu/eslint-config": "workspace:*",
+  "@biu/tsconfig": "workspace:*", "@types/node": "catalog:", "eslint": "catalog:", "typescript":
+  "catalog:" }
 {{/if}}
 }

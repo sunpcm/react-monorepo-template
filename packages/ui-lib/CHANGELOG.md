@@ -1,4 +1,4 @@
-# @niu/ui-lib
+# @biu/ui-lib
 
 ## 1.0.1
 

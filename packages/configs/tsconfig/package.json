@@ -1,13 +1,13 @@
 {
-  "name": "@niu/tsconfig",
+  "name": "@biu/tsconfig",
   "version": "1.0.0",
   "description": "",
   "main": "index.json",
   "scripts": {
-    "test": "echo \"(@niu/tsconfig) no tests\""
+    "test": "echo \"(@biu/tsconfig) no tests\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }

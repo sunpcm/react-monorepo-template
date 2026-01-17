@@ -72,6 +72,6 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ["react", "react-dom", "@niu/ui-lib"],
+    include: ["react", "react-dom", "@biu/ui-lib"],
   },
 });

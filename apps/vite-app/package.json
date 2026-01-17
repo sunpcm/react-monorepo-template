@@ -15,10 +15,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@niu/eslint-config": "workspace:*",
-    "@niu/postcss-config": "workspace:*",
-    "@niu/tailwind-config": "workspace:*",
-    "@niu/tsconfig": "workspace:*",
+    "@biu/eslint-config": "workspace:*",
+    "@biu/postcss-config": "workspace:*",
+    "@biu/tailwind-config": "workspace:*",
+    "@biu/tsconfig": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "^5.1.2",
@@ -32,9 +32,9 @@
     "vite": "^7.3.0"
   },
   "dependencies": {
-    "@niu/ui-lib": "workspace:*",
+    "@biu/ui-lib": "workspace:*",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }

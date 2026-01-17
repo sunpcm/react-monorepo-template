@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Button } from "@niu/ui-lib";
+import { Button } from "@biu/ui-lib";
 
 const App = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-brand-600 mb-8">Hello Webpack</h1>
+    <div className="min-h-screen bg-gray-50 px-4 py-12">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-brand-600 mb-8 text-4xl font-bold">Hello Webpack</h1>
 
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <p className="text-lg mb-4">
-            Count: <span className="font-bold text-brand-500">{count}</span>
+        <div className="mb-6 rounded-lg bg-white p-6 shadow-md">
+          <p className="mb-4 text-lg">
+            Count: <span className="text-brand-500 font-bold">{count}</span>
           </p>
           <div className="flex gap-4">
             <button onClick={() => setCount((c) => c + 1)} className="btn-primary">

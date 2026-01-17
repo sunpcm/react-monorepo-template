@@ -1,5 +1,5 @@
 {
-  "name": "@niu/ui-lib",
+  "name": "@biu/ui-lib",
   "version": "1.0.1",
   "description": "",
   "main": "index.tsx",
@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "test": "echo \"(@niu/ui-lib) no tests\""
+    "test": "echo \"(@biu/ui-lib) no tests\""
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -22,7 +22,7 @@
     "react": "catalog:",
     "react-dom": "catalog:"
   },
-  "prettier": "@niu/prettier-config",
+  "prettier": "@biu/prettier-config",
   "keywords": [],
   "author": "",
   "license": "ISC"

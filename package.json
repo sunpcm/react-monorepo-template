@@ -28,8 +28,8 @@
   "packageManager": "pnpm@10.26.0",
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
-    "@niu/eslint-config": "workspace:*",
-    "@niu/prettier-config": "workspace:*",
+    "@biu/eslint-config": "workspace:*",
+    "@biu/prettier-config": "workspace:*",
     "cross-env": "^10.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
@@ -46,5 +46,5 @@
       "eslint --fix"
     ]
   },
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }

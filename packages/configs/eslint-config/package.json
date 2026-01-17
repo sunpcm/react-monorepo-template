@@ -1,5 +1,5 @@
 {
-  "name": "@niu/eslint-config",
+  "name": "@biu/eslint-config",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     ".": "./index.js"
   },
   "scripts": {
-    "test": "echo \"(@niu/eslint-config) no tests\""
+    "test": "echo \"(@biu/eslint-config) no tests\""
   },
   "dependencies": {
     "@eslint/js": "^9.19.0",
@@ -22,5 +22,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "prettier": "@niu/prettier-config"
+  "prettier": "@biu/prettier-config"
 }
