@@ -49,7 +49,7 @@ module.exports = function (plop) {
     const files = rawFiles.map((f) => plop.renderString(String(f), answers));
     if (!files.length) return "skipped";
 
-    execSync(`pnpm -w exec prettier --write ${files.map((f) => `\"${f}\"`).join(" ")}`, {
+    execSync(`pnpm -w exec prettier --write ${files.map((f) => `"${f}"`).join(" ")}`, {
       stdio: "inherit",
     });
     return "formatted";

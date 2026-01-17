@@ -50,6 +50,7 @@ module.exports = [
   // Keeping this here avoids duplicating globals/relaxed rules in the repo root eslint.config.js.
   {
     files: [
+      "**/*.cjs",
       "**/config/webpack.*.js",
       "**/build/webpack.*.js",
       "**/.babelrc.js",
