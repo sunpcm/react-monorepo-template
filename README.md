@@ -113,14 +113,41 @@ pnpm build
 
 ## 📦 常用命令速查
 
-| 命令             | 说明                             |
-| ---------------- | -------------------------------- |
-| `pnpm dev`       | 启动所有应用的开发服务器         |
-| `pnpm build`     | 构建所有应用和包                 |
-| `pnpm lint`      | 执行 ESLint 代码检查             |
-| `pnpm typecheck` | 执行 TypeScript 类型检查         |
-| `pnpm clean:all` | 清理所有 node_modules 和构建产物 |
-| `pnpm changeset` | 生成发版变更日志 (用于发布流程)  |
+| 命令         | 说明                     |
+| ------------ | ------------------------ |
+| `pnpm dev`   | 启动所有应用的开发服务器 |
+| `pnpm build` | 构建所有应用和包         |
+| `pnpm lint`  | 执行 ESLint 代码检查     |
+
+## 🧰 新建 Package（自动接入 ESLint/Prettier/TSConfig）
+
+当你新建一个 workspace package（`packages/*` 或 `packages/configs/*`）时，通常需要手工补齐：
+
+- `@niu/eslint-config`（统一 ESLint v9 Flat Config）
+- `@niu/tsconfig`（统一 TS 配置）
+- `"prettier": "@niu/prettier-config"`（方案 A）
+
+为了避免重复劳动，本仓库提供了 Plop 生成器。
+
+### 交互式创建（推荐）
+
+```bash
+pnpm -w new:pkg
+```
+
+你可以在交互里选择：
+
+- 生成到 `packages/` 还是 `packages/configs/`
+- 是否生成带 React peerDependencies 的包
+- 包名默认会自动补 `@niu/` 前缀（当然也支持你直接输入 `@niu/foo`）
+
+### 非交互式创建（可用于脚本）
+
+```bash
+pnpm -w gen package -- --scope niu --name demo-lib --kind lib --dir packages --react false
+```
+
+> 注意：生成后需要执行一次安装（`pnpm -w install`），让新包进入 lockfile / turbo scope。
 
 ## 🤝 贡献与规范
 

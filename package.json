@@ -18,7 +18,9 @@
     "test": "turbo test",
     "clean": "rimraf **/node_modules",
     "clean:cache": "rimraf .turbo **/dist **/.vite **/.webpack_cache **/node_modules.vite",
-    "clean:all": "pnpm run clean:cache && pnpm run clean"
+    "clean:all": "pnpm run clean:cache && pnpm run clean",
+    "gen": "plop",
+    "new:pkg": "plop --plopfile plopfile.cjs"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +33,7 @@
     "cross-env": "^10.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "plop": "^4.0.1",
     "prettier": "catalog:",
     "rimraf": "^6.1.2",
     "turbo": "^2.7.2"
