@@ -91,7 +91,7 @@ module.exports = function (plop) {
         name: "name",
         message: "Package name (e.g. foo or @niu/foo):",
         default: cliDefaults.name,
-        validate: (v) => (!!String(v || "").trim() ? true : "Package name is required"),
+        validate: (v) => (String(v || "").trim() ? true : "Package name is required"),
       },
       {
         type: "list",
